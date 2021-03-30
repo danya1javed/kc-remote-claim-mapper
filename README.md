@@ -1,8 +1,9 @@
 
-##Explanation
+## Explanation
 
 ---
-1. ###Extending the right classes:
+
+1. ### Extending the right classes:
    
    YOUR_CUSTOM_MAPPER_NAME extends **AbstractOIDCProtocolMapper** implements
      **OIDCAccessTokenMapper**, **OIDCIDTokenMapper**, **UserInfoTokenMapper**
@@ -10,12 +11,12 @@
    These classes deal with the access token, IDToken or userInfo token so if
    you want to extend the functionality override some of its method.
    
-2. ###Key Variables
+2. ### Key Variables
 
    1. Your mapper identifier in keycloak: `public final static String PROVIDER_ID = "YOUR_MAPPER_NAME";`
    2. Config list for your mapper: `List<ProviderConfigProperty> configProperties = new ArrayList<>();`
     
-3. ###Sample Config Property
+3. ### Sample Config Property
         
     Create One: 
         
@@ -32,7 +33,7 @@
         There are accessable through model protcol class named ProtocolMapperModel
         String paramsFromConfig = protocolMapperModel.getConfig().get(PARAM_NAME);
 
-4. ###Setting Claim
+4. ### Setting Claim
 
    `SimpleResponsePOJO claims = clientSessionCtx.getAttribute(REMOTE_AUTHORIZATION_ATTR, SimpleResponsePOJO.class);`
     
@@ -51,6 +52,12 @@
    ```
    After checking claims in the session context depending on they are null or not. set the new claims retrieved using
    mapClaim(token, mapperModel, YOUR_CLAIMS). and also set it in session context for caching and retrieving later.
+
+---
+
+Useful Links
+1. https://github.com/tholst/keycloak-json-graphql-remote-claim
+2. https://medium.com/@pavithbuddhima/how-to-add-custom-claims-to-jwt-tokens-from-an-external-source-in-keycloak-52bd1ff596d3
 
 ---
 
