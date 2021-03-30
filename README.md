@@ -61,5 +61,4 @@ Useful Links
 
 ---
 
-_For Deploying the Mapper a jar with all its dependencies was created using maven-shade.
-This doesn't explain the complete code only important parts._
+_For Deploying the Mapper a jar with all its dependencies was created using maven-shade._
